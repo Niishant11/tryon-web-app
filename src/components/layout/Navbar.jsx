@@ -36,7 +36,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <Link to="/result" className={`nav__link ${isActive('/try-on') ? 'active' : ''}`}>
+              <Link to="/try-on" className={`nav__link ${isActive('/try-on') ? 'active' : ''}`}>
                 Result
               </Link> 
             </li>

@@ -5,13 +5,13 @@ import { getStorage } from 'firebase/storage';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDVtlq1sszqnrxf8Lki6CvFYAeCajRvTw8",
-  authDomain: "tryon-440bc.firebaseapp.com",
-  projectId: "tryon-440bc",
-  storageBucket: "tryon-440bc.firebasestorage.app",
-  messagingSenderId: "439701553840",
-  appId: "1:439701553840:web:4d04786b4cfd78fb463175",
-  measurementId: "G-DRC0T49WYY"
+  apiKey: "Abc",
+  authDomain: "abc",
+  projectId: "tryon-abc",
+  storageBucket: "trabcapp",
+  messagingSenderId: "abc0",
+  appId: "abcb463175",
+  measurementId: "abcYY"
 };
 
 // Initialize Firebase

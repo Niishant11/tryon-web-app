@@ -57,6 +57,9 @@ function AppLayout() {
         <Route path="/admin" element={
           <ProtectedRoute><AdminPanel /></ProtectedRoute>
         } />
+
+        {/* 404 Fallback — redirect to landing page */}
+        <Route path="*" element={<LandingPage />} />
       </Routes>
     </div>
   );
