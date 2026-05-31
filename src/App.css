@@ -494,11 +494,6 @@
   margin-bottom: 2rem;
 }
 
-  @media (max-width: 1024px){
-    border-right: none;
-    border-bottom : 1px solid var(--border);
-  }
-
 
 #next-steps ul {
   list-style: none;
@@ -551,8 +546,11 @@
 
 #spacer {
   height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
+  border-top: 1px solid var(--c-border);
+}
+
+@media (max-width: 1024px) {
+  #spacer {
     height: 48px;
   }
 }
