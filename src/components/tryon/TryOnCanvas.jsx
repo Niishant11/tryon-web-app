@@ -32,42 +32,58 @@ function removeBackground(img) {
   const ctx = canvas.getContext("2d");
   ctx.drawImage(img, 0, 0);
 
-  const imageData = ctx.getImageData(
-    0,
-    0,
-    canvas.width,
-    canvas.height
-  );
-
+  const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
   const data = imageData.data;
 
-  for (let i = 0; i < data.length; i += 4) {
+  // Detect background color from corners
+  const cornerSize = Math.min(20, Math.floor(canvas.width / 10), Math.floor(canvas.height / 10));
+  const corners = [];
+  
+  // Collect corner pixels
+  for (let i = 0; i < cornerSize; i++) {
+    for (let j = 0; j < cornerSize; j++) {
+      const idx = (i * canvas.width + j) * 4;
+      corners.push([data[idx], data[idx + 1], data[idx + 2]]);
+    }
+  }
 
+  // Calculate average corner color (background color)
+  const avgBg = [0, 0, 0];
+  corners.forEach(([r, g, b]) => {
+    avgBg[0] += r;
+    avgBg[1] += g;
+    avgBg[2] += b;
+  });
+  avgBg[0] = Math.round(avgBg[0] / corners.length);
+  avgBg[1] = Math.round(avgBg[1] / corners.length);
+  avgBg[2] = Math.round(avgBg[2] / corners.length);
+
+  // Determine threshold based on background brightness
+  const bgBrightness = (avgBg[0] + avgBg[1] + avgBg[2]) / 3;
+  let threshold = 35;
+  if (bgBrightness < 50) threshold = 40; // dark background
+  if (bgBrightness > 200) threshold = 30; // light background
+
+  // Remove background pixels matching detected color
+  for (let i = 0; i < data.length; i += 4) {
     const r = data[i];
     const g = data[i + 1];
     const b = data[i + 2];
+    const a = data[i + 3];
 
-    // Remove white/light gray background
-    if (
-      r > 220 &&
-      g > 220 &&
-      b > 220
-    ) {
-      data[i + 3] = 0;
-    }
+    // Calculate color distance from detected background
+    const dist = Math.sqrt(
+      Math.pow(r - avgBg[0], 2) +
+      Math.pow(g - avgBg[1], 2) +
+      Math.pow(b - avgBg[2], 2)
+    );
 
-    // Remove black background
-    if (
-      r < 25 &&
-      g < 25 &&
-      b < 25
-    ) {
-      data[i + 3] = 0;
+    if (dist < threshold) {
+      data[i + 3] = 0; // Make transparent
     }
   }
 
   ctx.putImageData(imageData, 0, 0);
-
   return canvas;
 }
 

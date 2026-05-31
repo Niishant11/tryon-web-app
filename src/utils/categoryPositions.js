@@ -7,56 +7,56 @@
 export const CATEGORY_ZONES = {
   sunglasses: {
     xFactor: 0.5,       // center horizontally
-    yFactor: 0.12,      // 12% from top (face/eye area)
-    widthFactor: 0.28,  // 28% of image width
-    aspectRatio: null,  // preserve product image ratio
+    yFactor: 0.13,      // slightly lower for better eye alignment
+    widthFactor: 0.30,  // slightly larger for prominence
+    aspectRatio: null,
   },
   hat: {
     xFactor: 0.5,
-    yFactor: 0.02,      // very top of head
-    widthFactor: 0.32,
+    yFactor: 0.055,     // positioned slightly lower than top
+    widthFactor: 0.38,  // larger for better coverage
     aspectRatio: null,
   },
   tshirt: {
     xFactor: 0.5,
-    yFactor: 0.27,      // upper torso
-    widthFactor: 0.60,
+    yFactor: 0.30,      // moved down a bit for better torso fit
+    widthFactor: 0.62,  // slightly larger for coverage
     aspectRatio: null,
   },
   jacket: {
     xFactor: 0.5,
-    yFactor: 0.24,
-    widthFactor: 0.68,
+    yFactor: 0.28,      // aligned with upper torso
+    widthFactor: 0.72,  // larger for full coverage
     aspectRatio: null,
   },
   pants: {
     xFactor: 0.5,
-    yFactor: 0.55,      // lower half
-    widthFactor: 0.55,
+    yFactor: 0.58,      // lower for better hip/leg positioning
+    widthFactor: 0.58,  // slightly larger
     aspectRatio: null,
   },
   skirt: {
     xFactor: 0.5,
-    yFactor: 0.55,
-    widthFactor: 0.50,
+    yFactor: 0.57,      // similar to pants but slightly higher
+    widthFactor: 0.54,
     aspectRatio: null,
   },
   shoes: {
     xFactor: 0.5,
-    yFactor: 0.88,      // bottom of canvas
-    widthFactor: 0.50,
+    yFactor: 0.92,      // closer to bottom for foot placement
+    widthFactor: 0.54,
     aspectRatio: null,
   },
   watch: {
-    xFactor: 0.22,      // left wrist — NOT centered
-    yFactor: 0.54,
-    widthFactor: 0.12,
+    xFactor: 0.20,      // left wrist position
+    yFactor: 0.56,      // arm level
+    widthFactor: 0.13,  // slightly larger
     aspectRatio: 1,     // square
   },
   bag: {
-    xFactor: 0.78,      // right side
-    yFactor: 0.45,
-    widthFactor: 0.18,
+    xFactor: 0.80,      // right side
+    yFactor: 0.48,      // hip/waist level
+    widthFactor: 0.20,  // slightly larger
     aspectRatio: null,
   },
 };
